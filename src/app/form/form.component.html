@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup">
+    <div class="form-group">
+        <input type="text" placeholder="Title" [formControlName]="'toDoTitle'">
+    </div>
+    <button (click)="addToDo()">Add ToDo</button>
+</form>

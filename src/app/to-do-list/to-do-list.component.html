@@ -1,0 +1,21 @@
+<div class="to-do-list">
+    <div *ngFor="let toDo of toDoList$" class="to-do-item" [class]="toDo.status">
+        <div class="check-icon" (click)="markAsDone(toDo.id)">
+        </div>
+        <div class="title">
+            {{toDo.title}}
+        </div>
+        <div class="actions">
+            <div class="edit"(click)="edit(toDo.id)">
+                <img src="https://www.svgrepo.com/show/521620/edit.svg" alt="">
+            </div>
+            <div *ngIf="toDo.status === 'done'" mat-button class="delete" (click)="delete(toDo.id)">
+                <img src="https://www.svgrepo.com/show/533007/trash.svg" alt="">
+            </div>
+        </div>
+        <div class="edit-input" [class.edit-opened]="toDo.editExpanded">
+            <input type="text" name="edit" id="edit" placeholder="New Title" #newTitle [value]="toDo.title">
+            <button class="edit-submit" (click)="save(toDo.id, newTitle.value)">Save</button>
+        </div>
+    </div>
+</div>

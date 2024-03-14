@@ -1,0 +1,112 @@
+// #63fd4e
+.to-do-list {
+    .to-do-item {
+        margin-bottom: 20px;
+        padding: 10px 24px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .check-icon {
+            border: 1px solid #cccccc;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            margin-right: 8px;
+            cursor: pointer
+        }
+
+        .title {}
+
+
+        .actions {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+
+            .delete,
+            .edit {
+                cursor: pointer;
+
+                img {
+                    height: 20px;
+                    width: auto;
+                }
+            }
+
+            .edit{
+                display: none;
+            }
+        }
+        .edit-input{
+            display: none;
+            flex: 1 1 100%;
+
+            input{
+                min-height: 36px;
+                text-indent: 6px;
+                margin-top: 12px;
+                font-size: 16px;
+            }
+
+            button{
+                margin-top: 8px;
+                padding: 0 12px;
+                min-height: 36px;
+                font-size: 16px;
+                border: 0;
+                border-radius: 8px;
+                background-color: #50D8D7;
+                color: #ffffff;
+                cursor: pointer;
+                
+            }
+
+            &.edit-opened{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        &:hover {
+
+            .actions{
+
+                .edit{
+                    display: block;
+                }
+            }
+        }
+
+        &.done {
+
+            .check-icon::before {
+                content: '';
+                background-image: url("./../../assets/images/icon-tick.svg");
+                width: 24px;
+                height: 24px;
+                display: block;
+                background-position: center;
+                background-size: contain;
+            }
+
+            .title {
+                text-decoration: line-through;
+                color: #d3d3d3;
+            }
+            
+            .actions{
+
+                .edit {
+                    display: none;
+                }
+            }
+        }
+
+        &.pending {}
+
+    }
+
+}

@@ -1,0 +1,9 @@
+<div class="app-holder">
+    <div class="switch">
+        <div class="list-view" (click)="switchView('List')" [class.active]="switchListValue">List</div>
+        <div class="new-item-view" (click)="switchView('Form')" [class.active]="switchFormValue">Add Item</div>
+    </div>
+
+    <app-form *ngIf="switchFormValue"></app-form>
+    <app-to-do-list *ngIf="switchListValue"></app-to-do-list>
+</div>
